@@ -100,7 +100,7 @@ async function activate(
       const callback = (item: Widget): void => {
         shell.add(item, 'main', { ref: id });
       };
-      const launcher = new Launcher({ model, cwd, callback, commands });
+      const launcher = new Launcher({ model, cwd, callback, commands, id });
 
       launcher.model = model;
       launcher.title.icon = launcherIcon;

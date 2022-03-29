@@ -198,9 +198,32 @@
 
 .jp-NewLauncher-sectionTitle {
   font-size: var(--jp-ui-font-size2);
+  width: -webkit-fill-available;
   font-weight: normal;
   color: var(--jp-ui-font-color1);
   box-sizing: border-box;
+}
+
+.jp-NewLauncher-sectionView {
+  width: 100%;
+}
+
+.jp-NewLauncher-sectionViewButton {
+  float: right;
+  color: rgb(0, 132, 255);
+  background: transparent;
+  border: none;
+}
+
+.jp-NewLauncher-sectionViewButton:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.jp-NewLauncher-SectionItemCount {
+  float: right;
+  color: rgb(0, 132, 255);
+  padding-right: 35px;
 }
 
 /* Launcher cards */
@@ -212,6 +235,18 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.jp-NewLauncher-cardContainerShort {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 150px;
 }
 
 .jp-NewLauncher-item {

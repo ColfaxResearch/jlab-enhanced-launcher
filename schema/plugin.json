@@ -4,9 +4,7 @@
   "jupyter.lab.shortcuts": [
     {
       "command": "launcher:create",
-      "keys": [
-        ""
-      ],
+      "keys": [""],
       "selector": "body"
     }
   ],
@@ -14,11 +12,29 @@
     "categories": {
       "title": "Launcher categories in displayed order",
       "description": "Absent categories will be appended.",
-      "default": ["Kernels", "Other"],
+      "default": [
+        "Kernels",
+        "Featured AI Developer Tools",
+        "Featured Tutorials",
+        "Featured Sample Applications",
+        "Terminal"
+      ],
       "type": "array",
       "items": {
         "type": "string"
       }
+    },
+    "customKernelSectionName": {
+      "title": "Define the new name for Kernel Section ",
+      "description": "Kernel section includes all the kernels as a default, just replacing the kernel section name",
+      "default": "New Notebook & Terminal",
+      "type": "string"
+    },
+    "combineKernelAndTerminal": {
+      "title": "Define only if we want terminal into kernel section",
+      "description": "By default terminal is in Terminal category but move it to kernel section",
+      "default": "False",
+      "type": "string"
     },
     "maxUsageAge": {
       "title": "Maximal age of the most recent use of a card (in days)",
@@ -30,6 +46,182 @@
       "title": "Number of recent cards to display",
       "default": 4,
       "type": "number"
+    },
+    "Featured AI Developer Tools": {
+      "title": "Featured AI Developer Tools Section",
+      "description": "Items for Featured AI Developer Tools Section",
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "lib/index.js",
+            "dontShowBrowser": true,
+            "Description": "Just defined!"
+          },
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured AI Developer Tools",
+          "rank": 0
+        }
+      ]
+    },
+    "Featured Tutorials": {
+      "title": "Featured Tutorials Section",
+      "description": "Items for Featured Tutorials Section",
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured Tutorials",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured Tutorials",
+          "rank": 1
+        }
+      ]
+    },
+    "Featured Sample Applications": {
+      "title": "Featured Sample Applications",
+      "description": "Items for Featured Sample Applications Section",
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured Sample Applications",
+          "rank": 0
+        },
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Featured Sample Applications",
+          "rank": 1
+        }
+      ]
+    },
+    "Terminal": {
+      "title": "Terminals Section",
+      "description": "Items for Terminal Section",
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "command": "terminal:create-new",
+          "args": {},
+          "category": "Terminal",
+          "rank": 0
+        }
+      ]
     }
   },
   "additionalProperties": false,

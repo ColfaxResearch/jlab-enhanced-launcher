@@ -194,6 +194,53 @@ export class LauncherModel extends VDomModel implements ILauncher {
   }
 
   /**
+   * Return all the items of given categories
+   */
+  categoryItems(cat: string): INewLauncher.IItemOptions[] {
+    if (!this._settings.composite[cat]) {
+      const allitemFinal: INewLauncher.IItemOptions[] = [];
+      return allitemFinal;
+    } else {
+      const allItem = this._settings.composite[cat] as {
+        args: object;
+        command: string;
+        category: string;
+        rank: number;
+      }[];
+
+      const allitemFinal: INewLauncher.IItemOptions[] = [];
+
+      for (let i = 0; i < allItem.length; i++) {
+        const actualItem = allItem[i] as ILauncher.IItemOptions;
+        const key = LauncherModel.getItemUID(actualItem);
+        const usage = this._usageData[key] || { count: 0, mostRecent: 0 };
+        allitemFinal.push({ ...actualItem, ...usage });
+      }
+
+      return allitemFinal;
+    }
+  }
+
+  /**
+   *  Return all the items of all the categories if defined
+   */
+  allCategoryItems(): INewLauncher.IItemOptions[] {
+    const allCatList = this.categories;
+
+    if (allCatList) {
+      const allCategoryItems: INewLauncher.IItemOptions[] = [];
+      const lengthOfCategories = allCatList.length;
+      for (let i = 0; i < lengthOfCategories; i++) {
+        const allItemsOfCateogry = this.categoryItems(allCatList[i]);
+
+        allCategoryItems.push(...allItemsOfCateogry);
+      }
+      return allCategoryItems;
+    } else {
+    }
+  }
+
+  /**
    * Handle card usage data when used.
    *
    * @param item Launcher item
@@ -239,6 +286,7 @@ export class Launcher extends VDomRenderer<LauncherModel> {
   constructor(options: INewLauncher.IOptions) {
     super(options.model);
     this._cwd = options.cwd;
+    this.id = options.id;
     this.translator = options.translator || nullTranslator;
     this._trans = this.translator.load('jupyterlab');
     this._callback = options.callback;
@@ -277,7 +325,7 @@ export class Launcher extends VDomRenderer<LauncherModel> {
     }
 
     const mode = this.model.viewMode === 'cards' ? '' : '-Table';
-
+    console.log(this.model.items());
     // First group-by categories
     const categories: {
       [category: string]: INewLauncher.IItemOptions[][];
@@ -289,6 +337,18 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       }
       categories[cat].push([item]);
     });
+
+    // Find all the custom category items
+    const customItem = this.model.allCategoryItems();
+    if (customItem) {
+      customItem.forEach(function(Item) {
+        const cat = Item.category || 'Other';
+        if (!(cat in categories)) {
+          categories[cat] = [];
+        }
+        categories[cat].push([Item]);
+      });
+    }
 
     // Merge kernel items
     const notebooks = categories['Notebook'];
@@ -328,6 +388,14 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       }
     });
     categories['Kernels'] = kernels;
+
+    // Just keep items of the defined category
+    const definedCategory = this.model.categories;
+    for (const cat in categories) {
+      if (definedCategory.indexOf(cat) === -1) {
+        delete categories[cat];
+      }
+    }
 
     // Within each category sort by rank
     for (const cat in categories) {
@@ -405,6 +473,23 @@ export class Launcher extends VDomRenderer<LauncherModel> {
         return;
       }
 
+      function viewAllHandler(cat: string, id: string) {
+        var cardContainer = document.getElementById(
+          `cardContainer-${cat}-${id}`
+        ) as HTMLDivElement;
+        const catSectionViewButton = document.getElementById(
+          `jp-NewLauncher-sectionViewButton-${cat}-${id}`
+        ) as HTMLButtonElement;
+        if (catSectionViewButton.innerHTML === 'View All') {
+          cardContainer.className = 'jp-NewLauncher-cardContainer';
+          catSectionViewButton.innerHTML = 'Collapse All';
+        } else {
+          cardContainer.className = 'jp-NewLauncher-cardContainerShort';
+          catSectionViewButton.innerHTML = 'View All';
+        }
+      }
+
+      const catItemsCount = categories[cat].length;
       const item = categories[cat][0][0];
       const args = { ...item.args, cwd: this.cwd };
       const kernel = cat === 'Kernels';
@@ -426,8 +511,25 @@ export class Launcher extends VDomRenderer<LauncherModel> {
             <h2 className="jp-NewLauncher-sectionTitle">
               {this._trans.__(cat)}
             </h2>
+            <div className="jp-NewLauncher-sectionView">
+              <span className="jp-NewLauncher-SectionItemCount">
+                ({catItemsCount})
+              </span>
+              <button
+                type="button"
+                id={`jp-NewLauncher-sectionViewButton-${cat}-${this.id}`}
+                className="jp-NewLauncher-sectionViewButton"
+                onClick={() => viewAllHandler(cat, this.id)}
+              >
+                View All
+              </button>
+            </div>
           </div>
-          <div className={`jp-NewLauncher${mode}-cardContainer`}>
+          <div
+            className={`jp-NewLauncher${mode}-cardContainerShort`}
+            id={`cardContainer-${cat}-${this.id}`}
+            key="cardContainer"
+          >
             {toArray(
               map(categories[cat], (items: INewLauncher.IItemOptions[]) => {
                 const item = items[0];
@@ -563,6 +665,11 @@ export namespace INewLauncher {
     translator?: ITranslator;
 
     /**
+     * Allow to identify the exact element clicked
+     */
+    id: string;
+
+    /**
      * The callback used when an item is launched.
      */
     callback: (widget: Widget) => void;
@@ -601,6 +708,21 @@ function Card(
   const caption = commands.caption(command, args);
   const label = commands.label(command, args);
   const title = kernel ? label : caption || label;
+  // const test = items[0] as INewLauncher.IItemOptions;
+  // if ('args' in test) {
+  //   if (JSON.stringify(test.args) === '{}') {
+  //     console.log('Empty');
+  //   } else {
+  //     if ('Description' in test.args) {
+  //       console.log(test.args['Description']);
+  //     }
+  //   }
+  // }
+
+  // // const description = test.args as JSONObject;
+  // // if ('Description' in description) {
+  // //   console.log(description['Description']);
+  // // }
 
   // Build the onclick handler.
   const onClickFactory = (
@@ -614,6 +736,7 @@ function Card(
         return;
       }
       launcher.pending = true;
+      commands.execute('launcher:create');
       void commands
         .execute(item.command, {
           ...item.args,
