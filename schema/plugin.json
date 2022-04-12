@@ -47,6 +47,11 @@
       "default": 4,
       "type": "number"
     },
+    "persistenMostUsedSection": {
+      "title": "To keep Most Used section in Launcher",
+      "default": "True",
+      "type": "string"
+    },
     "Featured AI Developer Tools": {
       "title": "Featured AI Developer Tools Section",
       "description": "Items for Featured AI Developer Tools Section",
@@ -63,7 +68,7 @@
             "Description": "Just defined!"
           },
           "category": "Featured AI Developer Tools",
-          "rank": 0
+          "rank": 1234
         },
         {
           "command": "terminal:create-new",

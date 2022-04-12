@@ -3,6 +3,7 @@ import { LabIcon } from '@jupyterlab/ui-components';
 import mostUsedSvg from '../style/icons/grade.svg';
 import viewListSvg from '../style/icons/view_list.svg';
 import viewModuleSvg from '../style/icons/view_module.svg';
+import blueDirectorySvg from '../style/icons/blue_directory_icon.svg';
 
 export const mostUsedIcon = new LabIcon({
   name: 'enhLauncher:most-used',
@@ -15,4 +16,9 @@ export const viewListIcon = new LabIcon({
 export const viewModuleIcon = new LabIcon({
   name: 'enhLauncher:module',
   svgstr: viewModuleSvg
+});
+
+export const bludDirectoryIcon = new LabIcon({
+  name: 'directory:icon',
+  svgstr: blueDirectorySvg
 });

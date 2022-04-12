@@ -14,15 +14,13 @@ import {
   ITranslator
 } from '@jupyterlab/translation';
 
-import { PageConfig } from '@jupyterlab/coreutils';
-
 import { ILauncher } from '@jupyterlab/launcher';
 
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 
 import { IStateDB } from '@jupyterlab/statedb';
 
-import { classes, folderIcon, LabIcon } from '@jupyterlab/ui-components';
+import { classes, LabIcon } from '@jupyterlab/ui-components';
 
 import {
   ArrayExt,
@@ -45,7 +43,7 @@ import { Widget } from '@lumino/widgets';
 
 import * as React from 'react';
 
-import { mostUsedIcon, viewListIcon, viewModuleIcon } from './icons';
+import { viewListIcon, viewModuleIcon, bludDirectoryIcon } from './icons';
 
 /**
  * Extension identifier
@@ -120,6 +118,21 @@ export class LauncherModel extends VDomModel implements ILauncher {
       return this._settings.composite['nRecentCards'] as number;
     } else {
       return 4;
+    }
+  }
+
+  /**
+   * Get the setting parameter persistenMostUsedSection to keep Most Used section on load launcher
+   */
+  get persistenMostUsedSectionCheck(): boolean {
+    if (
+      this._settings &&
+      (this._settings.composite['persistenMostUsedSection'] as string) ===
+        'True'
+    ) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -423,7 +436,7 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       }
     }
 
-    const mostUsedItems = toArray(this.model.items()).sort(
+    const mostUsedItems = toArray(customItem).sort(
       (a: INewLauncher.IItemOptions, b: INewLauncher.IItemOptions) => {
         return Private.sortByUsage(
           a,
@@ -435,12 +448,27 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       }
     );
 
-    // Render the most used items
+    function viewMostUsedSection(id: string) {
+      var dvMostUsed = document.getElementById(`most-used-${id}`);
+      var mostusedCheckBox = document.getElementById(
+        `mostUsed-${id}`
+      ) as HTMLInputElement;
+      dvMostUsed.style.display = mostusedCheckBox.checked ? 'block' : 'none';
+    }
+
+    // Render the most used items, before rendering will make sure if its set to keep or based on checkbox.
     if (this._searchInput === '') {
       const mostUsedSection = (
-        <div className="jp-NewLauncher-section" key="most-used">
+        <div
+          className="jp-NewLauncher-section"
+          key="most-used"
+          id={`most-used-${this.id}`}
+          style={{
+            display: this.model.persistenMostUsedSectionCheck ? 'block' : 'none'
+          }}
+        >
           <div className="jp-NewLauncher-sectionHeader">
-            <mostUsedIcon.react stylesheet="launcherSection" />
+            {/* <mostUsedIcon.react stylesheet="launcherSection" /> */}
             <h2 className="jp-NewLauncher-sectionTitle">
               {this._trans.__('Most Used')}
             </h2>
@@ -490,24 +518,24 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       }
 
       const catItemsCount = categories[cat].length;
-      const item = categories[cat][0][0];
-      const args = { ...item.args, cwd: this.cwd };
+      // const item = categories[cat][0][0];
+      // const args = { ...item.args, cwd: this.cwd };
       const kernel = cat === 'Kernels';
 
       // DEPRECATED: remove _icon when lumino 2.0 is adopted
       // if icon is aliasing iconClass, don't use it
-      const iconClass = this._commands.iconClass(item.command, args);
-      const _icon = this._commands.icon(item.command, args);
-      const icon = _icon === iconClass ? undefined : _icon;
+      // const iconClass = this._commands.iconClass(item.command, args);
+      // const _icon = this._commands.icon(item.command, args);
+      // const icon = _icon === iconClass ? undefined : _icon;
 
       const section = (
         <div className="jp-NewLauncher-section" key={cat}>
           <div className="jp-NewLauncher-sectionHeader">
-            <LabIcon.resolveReact
+            {/* <LabIcon.resolveReact
               icon={icon}
               iconClass={classes(iconClass, 'jp-Icon-cover')}
               stylesheet="launcherSection"
-            />
+            /> */}
             <h2 className="jp-NewLauncher-sectionTitle">
               {this._trans.__(cat)}
             </h2>
@@ -570,9 +598,10 @@ export class Launcher extends VDomRenderer<LauncherModel> {
             <div className="jp-NewLauncher-search">
               <div className="jp-NewLauncher-search-wrapper">
                 <input
-                  className="jp-NewLauncher-search-input"
+                  className="nosubmit"
+                  type="search"
+                  placeholder="Search..."
                   spellCheck={false}
-                  placeholder="SEARCH"
                   onChange={(event): void => {
                     this._searchInput = event.target.value || '';
                     this.update();
@@ -580,17 +609,27 @@ export class Launcher extends VDomRenderer<LauncherModel> {
                 />
               </div>
             </div>
-            <div className="jp-NewLauncher-cwd">
-              <folderIcon.react
-                className="jp-NewLauncher-home"
-                tag="span"
-                title={
-                  PageConfig.getOption('serverRoot') || 'Jupyter Server Root'
-                }
-                margin="0px 2px"
-              />
-              {/* Trailing / because with use direction rtl for better ellipsis rendering */}
-              <h3 title={this.cwd}>{`${this.cwd}/`}</h3>
+            <div
+              className="jp-NewLauncher-Mostused-content"
+              style={{
+                display: this.model.persistenMostUsedSectionCheck ? 'none' : ''
+              }}
+            >
+              <label className="jp-NewLauncher-Mostused-Check">
+                <input
+                  type="checkbox"
+                  id={`mostUsed-${this.id}`}
+                  name="mostUsed"
+                  onClick={() => viewMostUsedSection(this.id)}
+                ></input>
+                <div className="tooltip">
+                  <p className="tooltipMostUsed">Most Used</p>
+
+                  <span className="tooltiptext">
+                    Make "Most Used" section persistent in Launcher.
+                  </span>
+                </div>
+              </label>
             </div>
             <div className="jp-NewLauncher-view">
               <button
@@ -620,6 +659,14 @@ export class Launcher extends VDomRenderer<LauncherModel> {
                 />
               </button>
             </div>
+          </div>
+          {/* This section will list the currunt working directory path */}
+          <div className="jp-NewLauncher-cwd">
+            <bludDirectoryIcon.react
+              className="jp-NewLauncher-home"
+              margin="0px 5px 0px 10px"
+            />
+            <h3 title={this.cwd}>{`${this.cwd}/`}</h3>
           </div>
           <div className="jp-NewLauncher-content-main">{sections}</div>
         </div>
