@@ -43,8 +43,8 @@
 /* Toolbar, search bar */
 .jp-NewLauncher-toolbar {
   height: 50px;
-  /* border-bottom: var(--jp-border-width) solid var(--jp-toolbar-border-color); */
-  /* box-shadow: var(--jp-toolbar-box-shadow); */
+  border-bottom: var(--jp-border-width) solid var(--jp-toolbar-border-color);
+  box-shadow: var(--jp-toolbar-box-shadow);
   background: var(--jp-toolbar-background);
   display: flex;
   align-items: center;
@@ -52,6 +52,7 @@
 
 .jp-NewLauncher-search {
   padding-left: 10px;
+  padding-bottom: 4.5px;
   position: relative;
   width: 40%;
   margin-right: 20px;
@@ -59,19 +60,102 @@
 
 .jp-NewLauncher-Mostused-content {
   display: inline-flex;
-  padding-top: 40px;
   width: calc(100% - 210px - 40px);
   text-align: center;
   color: #1183d6;
 }
 
 .jp-NewLauncher-Mostused-Check {
+  --width: 60px;
+  --height: calc(var(--width) / 3);
+
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: var(--height);
+  cursor: pointer;
   vertical-align: middle;
+}
+
+.jp-NewLauncher-Mostused-Check input {
+  display: none;
 }
 
 .jp-NewLauncher-Mostused-infoIcon {
   padding-left: 5px;
   padding-top: 3px;
+}
+
+.jp-NewLauncher-Mostused-Check .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--height);
+  background-color: #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.jp-NewLauncher-Mostused-Check .slider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--height));
+  height: calc(var(--height));
+  border-radius: calc(var(--height) / 2);
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.jp-NewLauncher-Mostused-Check input:checked + .slider {
+  background-color: #1183d6;
+}
+.jp-NewLauncher-Mostused-Check input:checked + .slider::before {
+  transform: translateX(calc(var(--width) - var(--height)));
+}
+
+.jp-NewLauncher-Mostused-Check .labels {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  font-family: sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+.jp-NewLauncher-Mostused-Check .labels::after {
+  content: attr(data-on);
+  position: absolute;
+  right: 5px;
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+.jp-NewLauncher-Mostused-Check .labels::before {
+  content: attr(data-off);
+  position: absolute;
+  left: 5px;
+  color: #ffffff;
+  opacity: 0;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+.jp-NewLauncher-Mostused-Check input:checked ~ .labels::after {
+  opacity: 0;
+}
+
+.jp-NewLauncher-Mostused-Check input:checked ~ .labels::before {
+  opacity: 1;
 }
 
 /* Search bar style */
@@ -84,6 +168,18 @@ input[type='search'] {
   color: inherit;
   border: 1px solid transparent;
   border-radius: 10px;
+}
+
+.slider {
+  position: relative;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
 }
 
 input[type='search']:focus {
@@ -105,6 +201,9 @@ input.nosubmit {
 }
 
 input[type='checkbox'] {
+  -webkit-appearance: none;
+  outline: none;
+  position: relative;
   vertical-align: middle;
   display: inline-flex;
 }
@@ -115,13 +214,16 @@ input[type='checkbox']:disabled {
 }
 
 .tooltip {
-  position: relative;
+  position: absolute;
   display: inline-flex;
   padding-bottom: 30px;
 }
 
 .tooltip .tooltipMostUsed {
-  padding-top: 15px;
+  width: 80px;
+  padding-left: 23px;
+  padding-top: 3px;
+  font-size: 12px;
 }
 
 .tooltip .tooltiptext {
@@ -135,8 +237,8 @@ input[type='checkbox']:disabled {
   padding: 8px;
   position: relative;
   z-index: 1;
-  bottom: 125%;
-  left: 27%;
+  bottom: 20px;
+  left: 20%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -145,7 +247,7 @@ input[type='checkbox']:disabled {
 .tooltip .tooltiptext::after {
   content: '';
   position: absolute;
-  bottom: 48%;
+  bottom: 38%;
   right: 100%;
   margin-left: -5px;
   border-width: 5px;
@@ -247,6 +349,14 @@ input[type='checkbox']:disabled {
   flex: 0 0 auto;
   width: 18px;
   padding: 0px;
+}
+
+.jp-NewLauncher-Terminal-Button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  padding-right: 43px;
+  padding-top: 8px;
 }
 
 .jp-NewLauncher-view button:hover {

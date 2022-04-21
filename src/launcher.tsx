@@ -43,7 +43,12 @@ import { Widget } from '@lumino/widgets';
 
 import * as React from 'react';
 
-import { viewListIcon, viewModuleIcon, bludDirectoryIcon } from './icons';
+import {
+  viewListIcon,
+  viewModuleIcon,
+  bludDirectoryIcon,
+  terminalIcon
+} from './icons';
 
 /**
  * Extension identifier
@@ -122,15 +127,14 @@ export class LauncherModel extends VDomModel implements ILauncher {
   }
 
   /**
-   * Get the setting parameter persistenMostUsedSection to keep Most Used section on load launcher
+   * Get the setting parameter persistenMostUsedSection to make Most Used section persisten on luncher screen.
    */
-  get persistenMostUsedSectionCheck(): boolean {
+  get persistentMostUsedSection(): boolean {
     if (
       this._settings &&
-      (this._settings.composite['persistenMostUsedSection'] as string) ===
-        'True'
+      this._settings.composite['persistentMostUsedSection']
     ) {
-      return true;
+      return this._settings.composite['persistentMostUsedSection'] as boolean;
     } else {
       return false;
     }
@@ -400,6 +404,7 @@ export class Launcher extends VDomRenderer<LauncherModel> {
         kernels.push(console_);
       }
     });
+
     categories['Kernels'] = kernels;
 
     // Just keep items of the defined category
@@ -456,6 +461,10 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       dvMostUsed.style.display = mostusedCheckBox.checked ? 'block' : 'none';
     }
 
+    function openTerminal(commands: CommandRegistry) {
+      commands.execute('terminal:create-new');
+    }
+
     // Render the most used items, before rendering will make sure if its set to keep or based on checkbox.
     if (this._searchInput === '') {
       const mostUsedSection = (
@@ -464,7 +473,7 @@ export class Launcher extends VDomRenderer<LauncherModel> {
           key="most-used"
           id={`most-used-${this.id}`}
           style={{
-            display: this.model.persistenMostUsedSectionCheck ? 'block' : 'none'
+            display: this.model.persistentMostUsedSection ? 'block' : 'none'
           }}
         >
           <div className="jp-NewLauncher-sectionHeader">
@@ -609,27 +618,46 @@ export class Launcher extends VDomRenderer<LauncherModel> {
                 />
               </div>
             </div>
-            <div
-              className="jp-NewLauncher-Mostused-content"
-              style={{
-                display: this.model.persistenMostUsedSectionCheck ? 'none' : ''
-              }}
-            >
-              <label className="jp-NewLauncher-Mostused-Check">
+            <div className="jp-NewLauncher-Mostused-content">
+              <label
+                className="jp-NewLauncher-Mostused-Check"
+                style={{
+                  display: this.model.persistentMostUsedSection ? 'none' : ''
+                }}
+              >
                 <input
                   type="checkbox"
                   id={`mostUsed-${this.id}`}
                   name="mostUsed"
                   onClick={() => viewMostUsedSection(this.id)}
                 ></input>
-                <div className="tooltip">
+                <span className="slider">
+                  <div className="tooltip">
+                    <p className="tooltipMostUsed">Most Used</p>
+
+                    <span className="tooltiptext">
+                      Make "Most Used" section persistent in Launcher.
+                    </span>
+                  </div>
+                </span>
+                <span className="labels" data-on="Hide" data-off="Show"></span>
+                {/* <div className="tooltip">
                   <p className="tooltipMostUsed">Most Used</p>
 
                   <span className="tooltiptext">
                     Make "Most Used" section persistent in Launcher.
                   </span>
-                </div>
+                </div> */}
               </label>
+            </div>
+            <div>
+              <button
+                onClick={() => openTerminal(this._commands)}
+                className="jp-NewLauncher-Terminal-Button"
+                title="Open Terminal"
+              >
+                <terminalIcon.react />
+              </button>
             </div>
             <div className="jp-NewLauncher-view">
               <button
