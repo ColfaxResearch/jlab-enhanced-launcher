@@ -30,12 +30,6 @@
       "default": "New Notebook & Terminal",
       "type": "string"
     },
-    "combineKernelAndTerminal": {
-      "title": "Define only if we want terminal into kernel section",
-      "description": "By default terminal is in Terminal category but move it to kernel section",
-      "default": "False",
-      "type": "string"
-    },
     "maxUsageAge": {
       "title": "Maximal age of the most recent use of a card (in days)",
       "description": "If the latest use of a card is higher than maxUsageAge, the card will be considered as never used before.",
