@@ -109,9 +109,31 @@ export class LauncherModel extends VDomModel implements ILauncher {
    */
   get categories(): string[] {
     if (this._settings) {
-      return this._settings.composite['categories'] as string[];
+      // we will check either customkernel section name is define dor not
+      const customKernelsCategoryName = this.customKernelsCategoryName;
+      const definedCategories = this._settings.composite[
+        'categories'
+      ] as string[];
+      if (definedCategories.indexOf(customKernelsCategoryName) === -1) {
+        definedCategories.push(customKernelsCategoryName);
+      }
+      return definedCategories;
     } else {
       return ['Kernels', 'Other'];
+    }
+  }
+
+  /**
+   * Get the custom kernels category name if defined, otherwiser return Kernels
+   */
+  get customKernelsCategoryName(): string {
+    if (
+      this._settings &&
+      this._settings.composite['customKernelsCategoryName']
+    ) {
+      return this._settings.composite['customKernelsCategoryName'] as string;
+    } else {
+      'Kernels';
     }
   }
 
@@ -204,7 +226,10 @@ export class LauncherModel extends VDomModel implements ILauncher {
     return new ArrayIterator(
       this._items.map(item => {
         const key = LauncherModel.getItemUID(item);
-        const usage = this._usageData[key] || { count: 0, mostRecent: 0 };
+        const usage = this._usageData[key] || {
+          count: 0,
+          mostRecent: 0
+        };
         return { ...item, ...usage };
       })
     );
@@ -230,7 +255,10 @@ export class LauncherModel extends VDomModel implements ILauncher {
       for (let i = 0; i < allItem.length; i++) {
         const actualItem = allItem[i] as ILauncher.IItemOptions;
         const key = LauncherModel.getItemUID(actualItem);
-        const usage = this._usageData[key] || { count: 0, mostRecent: 0 };
+        const usage = this._usageData[key] || {
+          count: 0,
+          mostRecent: 0
+        };
         allitemFinal.push({ ...actualItem, ...usage });
       }
 
@@ -404,7 +432,9 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       }
     });
 
-    categories['Kernels'] = kernels;
+    // Just used customKernelsCategoryName is defined otherwiser default value is Kernels
+    const customKernelsCategoryName = this.model.customKernelsCategoryName;
+    categories[customKernelsCategoryName] = kernels;
 
     // Just keep items of the defined category
     const definedCategory = this.model.categories;
@@ -578,7 +608,7 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       const catItemsCount = categories[cat].length;
       // const item = categories[cat][0][0];
       // const args = { ...item.args, cwd: this.cwd };
-      const kernel = cat === 'Kernels';
+      const kernel = cat === this.model.customKernelsCategoryName;
 
       // DEPRECATED: remove _icon when lumino 2.0 is adopted
       // if icon is aliasing iconClass, don't use it

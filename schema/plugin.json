@@ -13,21 +13,20 @@
       "title": "Launcher categories in displayed order",
       "description": "Absent categories will be appended.",
       "default": [
-        "Kernels",
         "Featured AI Developer Tools",
         "Featured Tutorials",
         "Featured Sample Applications",
-        "New Notebook & Terminal"
+        "Kernels"
       ],
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "customKernelSectionName": {
-      "title": "Define the new name for Kernel Section ",
-      "description": "Kernel section includes all the kernels as a default, just replacing the kernel section name, make sure this value also defined in categories default value",
-      "default": "New Notebook & Terminal",
+    "customKernelsCategoryName": {
+      "title": "Define the new name for Kernels Section ",
+      "description": "Make sure 'Kernels' is defined within categories property. Kernels section includes all the kernels as a default, just replacing the kernel section name.",
+      "default": "New Notebooks",
       "type": "string"
     },
     "maxUsageAge": {
@@ -203,22 +202,6 @@
           "args": {},
           "category": "Featured Sample Applications",
           "rank": 1
-        }
-      ]
-    },
-    "New Notebook & Terminal": {
-      "title": "Terminals Section",
-      "description": "Items for Terminal Section, here make sure to keep the category as Notebook otherwise Terminal will note be combined to New Notebook section",
-      "type": "array",
-      "items": {
-        "type": "object"
-      },
-      "default": [
-        {
-          "command": "terminal:create-new",
-          "args": {},
-          "category": "New Notebook & Terminal",
-          "rank": 0
         }
       ]
     }
