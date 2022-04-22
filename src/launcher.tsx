@@ -342,7 +342,6 @@ export class Launcher extends VDomRenderer<LauncherModel> {
     }
 
     const mode = this.model.viewMode === 'cards' ? '' : '-Table';
-    console.log(this.model.items());
     // First group-by categories
     const categories: {
       [category: string]: INewLauncher.IItemOptions[][];
@@ -461,6 +460,56 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       dvMostUsed.style.display = mostusedCheckBox.checked ? 'block' : 'none';
     }
 
+    function seacrhOnChange(targetValue: string, id: string) {
+      if (targetValue.length === 1) {
+        var viewButtons = document.getElementsByName(`viewall-${id}`);
+        for (var i = 0; i <= viewButtons.length; i++) {
+          var viewButtonElm = viewButtons[i] as HTMLElement;
+          if (viewButtonElm) {
+            if (viewButtonElm.innerHTML === 'View All') {
+              viewButtonElm.click();
+            }
+            viewButtonElm.style.display = 'none';
+          }
+        }
+
+        var cardCount = document.getElementsByClassName(
+          'jp-NewLauncher-SectionItemCount'
+        );
+        for (var i = 0; i <= cardCount.length; i++) {
+          var cardCountElm = cardCount[i] as HTMLElement;
+          if (
+            cardCountElm &&
+            cardCountElm.id.split('-')[2] === id.split('-')[1]
+          ) {
+            cardCountElm.style.display = 'none';
+          }
+        }
+      }
+      if (targetValue.length === 0) {
+        var viewButtons = document.getElementsByName(`viewall-${id}`);
+        for (var i = 0; i <= viewButtons.length; i++) {
+          var viewButtonElm = viewButtons[i] as HTMLElement;
+          if (viewButtonElm) {
+            viewButtonElm.removeAttribute('style');
+            viewButtonElm.click();
+          }
+        }
+        var cardCount = document.getElementsByClassName(
+          'jp-NewLauncher-SectionItemCount'
+        );
+        for (var i = 0; i <= cardCount.length; i++) {
+          var cardCountElm = cardCount[i] as HTMLElement;
+          if (
+            cardCountElm &&
+            cardCountElm.id.split('-')[2] === id.split('-')[1]
+          ) {
+            cardCountElm.removeAttribute('style');
+          }
+        }
+      }
+    }
+
     function openTerminal(commands: CommandRegistry) {
       commands.execute('terminal:create-new');
     }
@@ -549,11 +598,15 @@ export class Launcher extends VDomRenderer<LauncherModel> {
               {this._trans.__(cat)}
             </h2>
             <div className="jp-NewLauncher-sectionView">
-              <span className="jp-NewLauncher-SectionItemCount">
+              <span
+                className="jp-NewLauncher-SectionItemCount"
+                id={`itemcount-${this.id}`}
+              >
                 ({catItemsCount})
               </span>
               <button
                 type="button"
+                name={`viewall-${this.id}`}
                 id={`jp-NewLauncher-sectionViewButton-${cat}-${this.id}`}
                 className="jp-NewLauncher-sectionViewButton"
                 onClick={() => viewAllHandler(cat, this.id)}
@@ -614,6 +667,7 @@ export class Launcher extends VDomRenderer<LauncherModel> {
                   onChange={(event): void => {
                     this._searchInput = event.target.value || '';
                     this.update();
+                    seacrhOnChange(event.target.value, this.id);
                   }}
                 />
               </div>
