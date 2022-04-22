@@ -8,11 +8,20 @@
 :root {
   --jp-private-new-launcher-top-padding: 16px;
   --jp-private-new-launcher-side-padding: 16px;
-  --jp-private-new-launcher-card-size: 130px;
-  --jp-private-new-launcher-card-label-height: 32px;
-  --jp-private-new-launcher-card-icon-height: 68px;
+  --jp-private-new-launcher-card-width: 250px;
+  --jp-private-new-launcher-card-height: 180px;
+  --jp-private-new-launcher-card-label-height: 48px;
+  --jp-private-new-launcher-card-icon-width: calc(
+    var(--jp-private-new-launcher-card-width) / 2.23
+  );
+  --jp-private-new-launcher-card-icon-height: calc(
+    var(--jp-private-new-launcher-card-height) / 2.23
+  );
   --jp-private-new-launcher-large-icon-size: 52px;
   --jp-private-new-launcher-small-icon-size: 32px;
+  --jp-private-new-launcher-card-icon-kernel-width: 230px;
+  --jp-private-new-launcher-card-icon-kernel-height: 80px;
+  --jp-private-new-launcher-card-kernel-label-font-size: 13.5px;
 }
 
 /* Launcher */
@@ -465,7 +474,7 @@ input[type='checkbox']:disabled {
   flex-direction: row;
   flex-wrap: wrap;
   overflow: hidden;
-  height: 150px;
+  height: 200px;
 }
 
 .jp-NewLauncher-item {
@@ -473,8 +482,8 @@ input[type='checkbox']:disabled {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  width: var(--jp-private-new-launcher-card-size);
-  height: var(--jp-private-new-launcher-card-size);
+  width: var(--jp-private-new-launcher-card-width);
+  height: var(--jp-private-new-launcher-card-height);
   margin: 8px;
   padding: 0px;
   border: 1px solid var(--jp-border-color2);
@@ -490,26 +499,52 @@ input[type='checkbox']:disabled {
 }
 
 .jp-NewLauncherCard-icon {
-  width: 100%;
+  width: var(--jp-private-new-launcher-card-icon-width);
   height: var(--jp-private-new-launcher-card-icon-height);
   box-sizing: border-box;
   margin: 0px;
-  padding: 0px;
+}
+
+.jp-NewLauncherCard-top {
+  height: 45%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.jp-NewLauncherCard-bottom {
+  height: 55%;
+}
+
+.jp-NewLauncherCard-header {
+  width: 100%;
 }
 
 .jp-NewLauncher-label {
   width: 100%;
+  display: flex;
   height: var(--jp-private-new-launcher-card-label-height);
-  padding: 0 4px 4px 4px;
+  padding: 10px 4px 4px 5px;
   box-sizing: border-box;
   word-break: break-word;
   text-align: center;
   color: var(--jp-ui-font-color1);
   line-height: 14px;
-  font-size: 12px;
+  font-size: var(--jp-private-new-launcher-card-kernel-label-font-size);
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.jp-NewLauncherCard-title {
+  width: 100%;
+  display: flex;
+  height: var(--jp-private-new-launcher-card-label-height);
+  padding: 10px 4px 4px 5px;
+  box-sizing: border-box;
+  word-break: break-word;
+  text-align: center;
+  color: var(--jp-ui-font-color1);
+  line-height: 14px;
+  font-size: var(--jp-private-new-launcher-card-kernel-label-font-size);
+  font-weight: bold;
   overflow: hidden;
 }
 
@@ -518,6 +553,23 @@ input[type='checkbox']:disabled {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+}
+
+.jp-NewLauncherCard-item-description {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 97%;
+  overflow: hidden;
+}
+
+.jp-NewLauncherCard-item-description p {
+  width: 100%;
+  height: 100%;
+  font-size: 13.5px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px 0px 0px 15px;
 }
 
 .jp-NewLauncher-option-button {
@@ -565,9 +617,35 @@ input[type='checkbox']:disabled {
   align-items: center;
 }
 
+.jp-NewLauncher-item-kernel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  width: var(--jp-private-new-launcher-card-icon-kernel-width);
+  height: var(--jp-private-new-launcher-card-icon-kernel-height);
+  margin: 8px;
+  padding: 0px;
+  border: 1px solid var(--jp-border-color2);
+  background: #e9e9e9;
+  box-shadow: var(--jp-elevation-z2);
+  transition: 0.2s box-shadow;
+  border-radius: var(--jp-border-radius);
+}
+
+.jp-NewLauncher-item-kernel:hover {
+  background: #e2e2e2;
+}
+
 .jp-NewLauncher-kernelIcon {
+  display: flex;
   width: var(--jp-private-new-launcher-large-icon-size);
   height: var(--jp-private-new-launcher-large-icon-size);
   margin: 0px;
-  padding: 0px;
+  padding: 10px 0 0 15px;
+}
+
+.jp-Newlauncher-kernel-Top {
+  display: flex;
+  flex-direction: row;
 }

@@ -20,7 +20,7 @@ import { ISettingRegistry } from '@jupyterlab/settingregistry';
 
 import { IStateDB } from '@jupyterlab/statedb';
 
-import { classes, LabIcon } from '@jupyterlab/ui-components';
+import { LabIcon } from '@jupyterlab/ui-components';
 
 import {
   ArrayExt,
@@ -47,7 +47,8 @@ import {
   viewListIcon,
   viewModuleIcon,
   bludDirectoryIcon,
-  terminalIcon
+  terminalIcon,
+  pyIcon
 } from './icons';
 
 /**
@@ -867,7 +868,7 @@ function Card(
   const caption = commands.caption(command, args);
   const label = commands.label(command, args);
   const title = kernel ? label : caption || label;
-  // const test = items[0] as INewLauncher.IItemOptions;
+  // const customItem = items[0] as INewLauncher.IItemOptions;
   // if ('args' in test) {
   //   if (JSON.stringify(test.args) === '{}') {
   //     console.log('Empty');
@@ -878,10 +879,13 @@ function Card(
   //   }
   // }
 
-  // // const description = test.args as JSONObject;
-  // // if ('Description' in description) {
-  // //   console.log(description['Description']);
-  // // }
+  // const customItemargs = customItem.args as JSONObject;
+  // const customItemIconStr =
+  //   'icon' in customItemargs ? (customItemargs['icon'] as string) : 'none';
+
+  // const customItemIconObj = { name: 'testing', svgstr: customItemIconStr };
+
+  // console.log(customItemIconStr);
 
   // Build the onclick handler.
   const onClickFactory = (
@@ -956,6 +960,37 @@ function Card(
   const _icon = commands.icon(command, args);
   const icon = _icon === iconClass ? undefined : _icon;
 
+  if (kernel) {
+    // If it is kernel item please use different CSS style
+    return (
+      <div
+        className={`jp-NewLauncher-item${mode}-kernel`}
+        title={title}
+        onClick={mainOnClick}
+        onKeyPress={onkeypress}
+        tabIndex={100}
+        data-category={item.category}
+        key={Private.keyProperty.get(item)}
+      >
+        <div className="jp-Newlauncher-kernel-Top">
+          <pyIcon.react className="jp-NewLauncher-kernelIcon" />
+          <div
+            className={`jp-NewLauncher-label jp-NewLauncher${mode}-Cell`}
+            title={label}
+          >
+            {label.split('(')[1].split(')')[0]}
+          </div>
+        </div>
+
+        <div
+          className={`jp-NewLauncher-options-wrapper jp-NewLauncher${mode}-Cell`}
+        >
+          <div className="jp-NewLauncher-options">{getOptions(items)}</div>
+        </div>
+      </div>
+    );
+  }
+
   // Return the VDOM element.
   return (
     <div
@@ -964,39 +999,36 @@ function Card(
       onClick={mainOnClick}
       onKeyPress={onkeypress}
       tabIndex={100}
-      data-category={item.category || 'Other'}
+      data-category={item.category}
       key={Private.keyProperty.get(item)}
     >
-      <div className={`jp-NewLauncherCard-icon jp-NewLauncher${mode}-Cell`}>
-        {kernel ? (
-          item.kernelIconUrl ? (
-            <img
-              src={item.kernelIconUrl}
-              className="jp-NewLauncher-kernelIcon"
-            />
-          ) : (
-            <div className="jp-NewLauncherCard-noKernelIcon">
-              {label[0].toUpperCase()}
-            </div>
-          )
-        ) : (
+      <div className="jp-NewLauncherCard-top">
+        <div className={`jp-NewLauncherCard-icon jp-NewLauncher${mode}-Cell`}>
           <LabIcon.resolveReact
             icon={icon}
-            iconClass={classes(iconClass, 'jp-Icon-cover')}
-            stylesheet="launcherCard"
+            className="jp-NewLauncherCard-icon"
           />
-        )}
+        </div>
+        <div className="jp-NewLauncherCard-header">
+          <div className="jp-NewLauncherCard-title" title={label}>
+            {label}
+          </div>
+          <div className="jp-NewLauncher-label" title={label}>
+            {label}
+          </div>
+        </div>
       </div>
-      <div
-        className={`jp-NewLauncher-label jp-NewLauncher${mode}-Cell`}
-        title={label}
-      >
-        {label}
-      </div>
-      <div
-        className={`jp-NewLauncher-options-wrapper jp-NewLauncher${mode}-Cell`}
-      >
-        <div className="jp-NewLauncher-options">{getOptions(items)}</div>
+      <div className="jp-NewLauncherCard-bottom">
+        <div className="jp-NewLauncherCard-item-description">
+          <p>
+            Here is the sample application that you can user o ppen sdfdsfsd
+            fsadf safasdfasdfsdfsdfsd sadfsdfsadfasdfsdfsdf sd sdfdsfsdf
+            safsafsdf safsdf sf asfsadf sdfsdaf sfsd fsdfsdfsdfsdfsdfsad sdf sdf
+            sdf asdf asdf sadf sdfsdfsdfwefasdfwefsfsdf sdfsafwefsfasdfsdfsd
+            fwfasfsfsfasfaweafsfrgsdfaadfsaf
+            sfwefsfsadfsdfsfafafaerfergdfgasfsadfsadfweafergdsfgfdfsd s
+          </p>
+        </div>
       </div>
     </div>
   );

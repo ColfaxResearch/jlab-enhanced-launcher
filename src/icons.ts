@@ -5,6 +5,7 @@ import viewListSvg from '../style/icons/view_list.svg';
 import viewModuleSvg from '../style/icons/view_module.svg';
 import blueDirectorySvg from '../style/icons/blue_directory_icon.svg';
 import terminalSvg from '../style/icons/terminal.svg';
+import pyIconSVG from '../style/icons/python_icon.svg';
 
 export const mostUsedIcon = new LabIcon({
   name: 'enhLauncher:most-used',
@@ -17,6 +18,11 @@ export const viewListIcon = new LabIcon({
 export const viewModuleIcon = new LabIcon({
   name: 'enhLauncher:module',
   svgstr: viewModuleSvg
+});
+
+export const pyIcon = new LabIcon({
+  name: 'enhLauncher: pythonicon',
+  svgstr: pyIconSVG
 });
 
 export const bludDirectoryIcon = new LabIcon({
