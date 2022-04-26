@@ -33,7 +33,7 @@ import {
 
 import { CommandRegistry } from '@lumino/commands';
 
-import { ReadonlyJSONObject } from '@lumino/coreutils';
+import { ReadonlyJSONObject, JSONObject } from '@lumino/coreutils';
 
 import { DisposableDelegate, IDisposable } from '@lumino/disposable';
 
@@ -868,22 +868,25 @@ function Card(
   const caption = commands.caption(command, args);
   const label = commands.label(command, args);
   const title = kernel ? label : caption || label;
-  // const customItem = items[0] as INewLauncher.IItemOptions;
-  // if ('args' in test) {
-  //   if (JSON.stringify(test.args) === '{}') {
-  //     console.log('Empty');
-  //   } else {
-  //     if ('Description' in test.args) {
-  //       console.log(test.args['Description']);
-  //     }
-  //   }
-  // }
 
-  // const customItemargs = customItem.args as JSONObject;
-  // const customItemIconStr =
-  //   'icon' in customItemargs ? (customItemargs['icon'] as string) : 'none';
+  // Ge the Custom Item Object
+  const customItem = items[0] as INewLauncher.IItemOptions;
 
-  // const customItemIconObj = { name: 'testing', svgstr: customItemIconStr };
+  const customItemargs = customItem.args as JSONObject;
+
+  // Get the svg string for icon of the item
+  const customItemIconStr =
+    'icon' in customItemargs ? (customItemargs['icon'] as string) : 'none';
+  const customItemIconObj = { name: 'testing', svgstr: customItemIconStr };
+
+  // Get the title of the item
+  const customItemTitle = customItemargs['title'] as string;
+
+  // Get the label tag of the item
+  const customItemLabel = customItemargs['label'] as string;
+
+  // Get the discription of the item
+  const customItemDesc = customItemargs['description'] as string;
 
   // console.log(customItemIconStr);
 
@@ -956,9 +959,9 @@ function Card(
 
   // DEPRECATED: remove _icon when lumino 2.0 is adopted
   // if icon is aliasing iconClass, don't use it
-  const iconClass = commands.iconClass(command, args);
-  const _icon = commands.icon(command, args);
-  const icon = _icon === iconClass ? undefined : _icon;
+  // const iconClass = commands.iconClass(command, args);
+  // const _icon = commands.icon(command, args);
+  // const icon = _icon === iconClass ? undefined : _icon;
 
   if (kernel) {
     // If it is kernel item please use different CSS style
@@ -1005,29 +1008,22 @@ function Card(
       <div className="jp-NewLauncherCard-top">
         <div className={`jp-NewLauncherCard-icon jp-NewLauncher${mode}-Cell`}>
           <LabIcon.resolveReact
-            icon={icon}
+            icon={customItemIconObj}
             className="jp-NewLauncherCard-icon"
           />
         </div>
         <div className="jp-NewLauncherCard-header">
-          <div className="jp-NewLauncherCard-title" title={label}>
-            {label}
+          <div className="jp-NewLauncherCard-title" title={customItemTitle}>
+            {customItemTitle}
           </div>
-          <div className="jp-NewLauncher-label" title={label}>
-            {label}
+          <div className="jp-NewLauncherCard-label" title={customItemLabel}>
+            {customItemLabel}
           </div>
         </div>
       </div>
       <div className="jp-NewLauncherCard-bottom">
         <div className="jp-NewLauncherCard-item-description">
-          <p>
-            Here is the sample application that you can user o ppen sdfdsfsd
-            fsadf safasdfasdfsdfsdfsd sadfsdfsadfasdfsdfsdf sd sdfdsfsdf
-            safsafsdf safsdf sf asfsadf sdfsdaf sfsd fsdfsdfsdfsdfsdfsad sdf sdf
-            sdf asdf asdf sadf sdfsdfsdfwefasdfwefsfsdf sdfsafwefsfasdfsdfsd
-            fwfasfsfsfasfaweafsfrgsdfaadfsaf
-            sfwefsfsadfsdfsfafafaerfergdfgasfsadfsadfweafergdsfgfdfsd s
-          </p>
+          <p>{customItemDesc}</p>
         </div>
       </div>
     </div>

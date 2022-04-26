@@ -487,7 +487,7 @@ input[type='checkbox']:disabled {
   margin: 8px;
   padding: 0px;
   border: 1px solid var(--jp-border-color2);
-  background: var(--jp-layout-color0);
+  background: #e9e9e9;
   box-shadow: var(--jp-elevation-z2);
   transition: 0.2s box-shadow;
   border-radius: var(--jp-border-radius);
@@ -533,14 +533,29 @@ input[type='checkbox']:disabled {
   overflow: hidden;
 }
 
+.jp-NewLauncherCard-label {
+  width: 100%;
+  display: flex;
+  height: var(--jp-private-new-launcher-card-label-height);
+  padding: 5px 4px 4px 0;
+  box-sizing: border-box;
+  word-break: break-word;
+  text-align: left;
+  color: var(--jp-ui-font-color1);
+  line-height: 14px;
+  font-size: var(--jp-private-new-launcher-card-kernel-label-font-size);
+  font-weight: bold;
+  overflow: hidden;
+}
+
 .jp-NewLauncherCard-title {
   width: 100%;
   display: flex;
   height: var(--jp-private-new-launcher-card-label-height);
-  padding: 10px 4px 4px 5px;
+  padding: 20px 4px 4px 0;
   box-sizing: border-box;
   word-break: break-word;
-  text-align: center;
+  text-align: left;
   color: var(--jp-ui-font-color1);
   line-height: 14px;
   font-size: var(--jp-private-new-launcher-card-kernel-label-font-size);
