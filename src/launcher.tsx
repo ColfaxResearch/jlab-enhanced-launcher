@@ -658,13 +658,30 @@ export class Launcher extends VDomRenderer<LauncherModel> {
                 const args = { ...item.args, cwd: this.cwd };
                 const label = this._commands.label(command, args);
 
-                // Apply search filter
-                if (
-                  label
-                    .toLocaleLowerCase()
-                    .indexOf(this._searchInput.toLocaleLowerCase()) === -1
-                ) {
-                  return null;
+                // Apply filter for custom items label
+                const customItem = items[0] as INewLauncher.IItemOptions;
+                const customItemargs = customItem.args as JSONObject;
+                const customItemTitle = customItemargs['title'] as string;
+
+                if (kernel) {
+                  if (
+                    label
+                      .toLocaleLowerCase()
+                      .indexOf(this._searchInput.toLocaleLowerCase()) === -1
+                  ) {
+                    return null;
+                  }
+                } else {
+                  if (customItemTitle) {
+                    if (
+                      customItemTitle
+                        .toLocaleLowerCase()
+                        .indexOf(this._searchInput.toLocaleLowerCase()) === -1
+                    ) {
+                      return null;
+                    } else {
+                    }
+                  }
                 }
 
                 return Card(
@@ -879,11 +896,11 @@ function Card(
     'icon' in customItemargs ? (customItemargs['icon'] as string) : 'none';
   const customItemIconObj = { name: 'testing', svgstr: customItemIconStr };
 
-  // Get the title of the item
+  // Get the label tag of the item
   const customItemTitle = customItemargs['title'] as string;
 
-  // Get the label tag of the item
-  const customItemLabel = customItemargs['label'] as string;
+  // Get the title of the item
+  const customItemTag = customItemargs['tag'] as string;
 
   // Get the discription of the item
   const customItemDesc = customItemargs['description'] as string;
@@ -1016,8 +1033,8 @@ function Card(
           <div className="jp-NewLauncherCard-title" title={customItemTitle}>
             {customItemTitle}
           </div>
-          <div className="jp-NewLauncherCard-label" title={customItemLabel}>
-            {customItemLabel}
+          <div className="jp-NewLauncherCard-label" title={customItemTag}>
+            {customItemTag}
           </div>
         </div>
       </div>
