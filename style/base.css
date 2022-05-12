@@ -649,7 +649,8 @@ input[type='checkbox']:disabled {
 }
 
 .jp-NewLauncher-item-kernel:hover {
-  background: #e2e2e2;
+  box-shadow: var(--jp-elevation-z6);
+  background: var(--jp-layout-color1);
 }
 
 .jp-NewLauncher-kernelIcon {
@@ -663,4 +664,11 @@ input[type='checkbox']:disabled {
 .jp-Newlauncher-kernel-Top {
   display: flex;
   flex-direction: row;
+}
+
+.jp-CustomItemIcon {
+  width: 60%;
+  height: 60%;
+  margin-top: 20px;
+  margin-left: 10px;
 }

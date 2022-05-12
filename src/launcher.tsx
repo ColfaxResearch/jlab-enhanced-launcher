@@ -20,8 +20,6 @@ import { ISettingRegistry } from '@jupyterlab/settingregistry';
 
 import { IStateDB } from '@jupyterlab/statedb';
 
-import { LabIcon } from '@jupyterlab/ui-components';
-
 import {
   ArrayExt,
   ArrayIterator,
@@ -891,10 +889,27 @@ function Card(
 
   const customItemargs = customItem.args as JSONObject;
 
-  // Get the svg string for icon of the item
-  const customItemIconStr =
+  // Get the custom item ICON's png file name
+  const customItemPngFileName =
     'icon' in customItemargs ? (customItemargs['icon'] as string) : 'none';
-  const customItemIconObj = { name: 'testing', svgstr: customItemIconStr };
+
+  // Find index based on the file name
+  const AllWebPack = require.context('../style/images', false, /\.png$/);
+  const customItemPngFileNameStr = `./${customItemPngFileName}`;
+  const customItemPngID = AllWebPack.keys().indexOf(customItemPngFileNameStr);
+
+  // Get all webpack of all the PNG file from directory
+  function importAll(r: any) {
+    return r.keys().map(r);
+  }
+  const imageDir = importAll(
+    require.context('../style/images', false, /\.png$/)
+  );
+
+  console.log(AllWebPack.keys());
+
+  // Get the IconWebPack to render the Icon as img in Launcher
+  const IconWebPack = imageDir[customItemPngID];
 
   // Get the label tag of the item
   const customItemTitle = customItemargs['title'] as string;
@@ -1024,10 +1039,7 @@ function Card(
     >
       <div className="jp-NewLauncherCard-top">
         <div className={`jp-NewLauncherCard-icon jp-NewLauncher${mode}-Cell`}>
-          <LabIcon.resolveReact
-            icon={customItemIconObj}
-            className="jp-NewLauncherCard-icon"
-          />
+          <img src={IconWebPack.default} alt="" className="jp-CustomItemIcon" />
         </div>
         <div className="jp-NewLauncherCard-header">
           <div className="jp-NewLauncherCard-title" title={customItemTitle}>

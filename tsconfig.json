@@ -18,7 +18,8 @@
     "strict": true,
     "strictNullChecks": false,
     "target": "es2017",
-    "types": []
+    "allowJs": true,
+    "types": ["node", "webpack-env"]
   },
   "include": ["src/*"]
 }
