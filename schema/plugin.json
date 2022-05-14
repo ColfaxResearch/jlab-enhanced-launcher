@@ -26,7 +26,7 @@
     "customKernelsCategoryName": {
       "title": "Define the new name for Kernels Section ",
       "description": "Make sure 'Kernels' is defined within categories property. Kernels section includes all the kernels as a default, just replacing the kernel section name.",
-      "default": "New Notebooks",
+      "default": "New Notebooks and Terminal",
       "type": "string"
     },
     "maxUsageAge": {
