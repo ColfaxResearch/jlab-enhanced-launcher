@@ -56,7 +56,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/nncf/nncf_tensorflow_quantization.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Neural Network Compression Framework",
@@ -73,7 +73,7 @@
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Noise Suppression",
             "tag": "AI Tools",
-            "description": "Use a pretrained deep-learning model (noise-suppression-poconetlike-0001) that inputs a noise-induced audio file, and then generates a noise-suppressed audio file."
+            "description": "Not Exist, Use a pretrained deep-learning model (noise-suppression-poconetlike-0001) that inputs a noise-induced audio file, and then generates a noise-suppressed audio file."
           },
           "category": "Featured AI Developer Tools"
         },
@@ -85,14 +85,14 @@
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Time Series Forecasting",
             "tag": "AI Tools",
-            "description": "Use a pretrained deep-learning model (time-series-forecasting-electricity-0001) to forecast the time series data from an open-sourced dataset: Electricity."
+            "description": "Not exist, Use a pretrained deep-learning model (time-series-forecasting-electricity-0001) to forecast the time series data from an open-sourced dataset: Electricity."
           },
           "category": "Featured AI Developer Tools"
         },
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/tiny-yolo-v4-python/tiny_yolo_v4.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Tiny YOLO* V4",
@@ -104,7 +104,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/tiny-yolo-v3-python/tiny_yolo_v3.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Tiny Yolo V3 Object Detection",
@@ -116,7 +116,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/store-traffic-monitor-python/store_traffic_monitor_demo.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-store-traffic-monitor.png",
             "title": "Store Traffic Monitor",
@@ -128,7 +128,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/store-aisle-monitor-python/store_aisle_monitor.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-store-aisle-monitor.png",
             "title": "Store Aisle Monitor",
@@ -140,7 +140,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/seismic-interpretation-python/Automated-Seismic-Interpretation.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Seismic Interpretation",
@@ -152,7 +152,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/object-detection-python/object_detection_demo.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Accelerated Object Detection",
@@ -164,7 +164,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/machine_translation-python/machine_translation.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Machine Translation",
@@ -176,7 +176,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/intruder-detector-python/intruder-detector-jupyter.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Intruder Detection",
@@ -188,7 +188,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-lts/developer-samples/python/frictionless-retail/Frictionless_Retail_Benchmarking.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Frictionless Retail",
@@ -200,7 +200,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/weld-porosity-python/Weld_Porosity_Defect_Detection.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-weld-porosity-detection.png",
             "title": "Weld Porosity",
@@ -212,7 +212,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/restricted-zone-notifier-python/restricted_zone_notifier.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Restricted Zone Notifier",
@@ -224,7 +224,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/pneumonia-classification/classification_pneumonia.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Pneumonia Detection",
@@ -236,7 +236,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/people-counter-python/people_counter.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "People Counter System",
@@ -248,7 +248,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Healthcare/brain_tumor_segmentation.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Brain Tumor Segmentation",
@@ -260,7 +260,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-lts/developer-samples/python/biobert-python/BioBERT.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Biomedical Text Mining",
@@ -272,7 +272,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/gesture-recognition-python/gesture_recognition.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-sign-language.png",
             "title": "American Sign Language (ASL) Gesture Recognition",
@@ -284,7 +284,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Openvino_Tensorflow/object-detection-python/object_detection.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "OpenVINO™ Integration with TensorFlow* Object Detection",
@@ -296,7 +296,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Openvino_Tensorflow/classification-python/classification.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "OpenVINO™ Integration with TensorFlow* Classification",
@@ -308,7 +308,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/mask-rcnn/maskrcnn.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Mask R-CNN Instance Segmentation",
@@ -320,7 +320,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/shopper-gaze-monitor-python/shopper_gaze_monitor.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Shopper Gaze Monitor",
@@ -342,7 +342,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/classification/tutorial_classification_sample.ipynb",
             "dontShowBrowser": true,
             "icon": "tutorial-classification.png",
             "title": "Classification",
@@ -354,7 +354,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/benchmarkApp_python/BenchmarkApp_python.ipynb",
             "dontShowBrowser": true,
             "icon": "tutorial-adv-benchmark-app.png",
             "title": "Benchmark App",
@@ -366,7 +366,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/style_transfer/tutorial_style_transfer_sample.ipynb",
             "dontShowBrowser": true,
             "icon": "tutorial-style-transfer.png",
             "title": "Style Transfer",
@@ -378,7 +378,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/pot/POT_tutorial.ipynb",
             "dontShowBrowser": true,
             "icon": "tutorial-adv-post-training-optimization.png",
             "title": "Post-Training Optimization Tool",
@@ -390,7 +390,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/opencv/OpenCV_Primer_Tutorial.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "OpenCV Tutorial",
@@ -402,7 +402,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/devcloud-to-local-migration/DevCloud_to_Local_Migration.ipynb",
             "dontShowBrowser": true,
             "icon": "tutorial-adv-migrate-to-devcloud.png",
             "title": "Migrate to DevCloud",
@@ -414,7 +414,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/devcloud-to-local-migration/DevCloud_to_Local_Migration.ipynb",
             "dontShowBrowser": true,
             "icon": "tutorial-adv-migrate-to-local-edge.png",
             "title": "Migrate to Edge",
@@ -426,7 +426,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/Openvino_Tensorflow/tfhub_classification/image_classification_tfhub.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "OpenVINO™ Integration with TensorFlow*",
@@ -448,7 +448,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/tiny-yolo-v3-python/tiny_yolo_v3.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Tiny Yolo V3",
@@ -460,7 +460,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/safety-gear-detection-python/safety_gear_detection.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-safety-gear-detection.png",
             "title": "Safety Gear Detection",
@@ -472,7 +472,7 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "lib/index.js",
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/performance-comparison-python/performance_comparison_sample.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-performance-comparison.png",
             "title": "Performance Comparison",
