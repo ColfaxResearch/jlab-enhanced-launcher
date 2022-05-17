@@ -903,11 +903,7 @@ function Card(
     return r.keys().map(r);
   }
   const imageDir = importAll(
-    require.context(
-      '/data/jupyterlab_extensions_settings/jlab_enhanced_launcher/images',
-      false,
-      /\.png$/
-    )
+    require.context('../style/images', false, /\.png$/)
   );
 
   console.log(AllWebPack.keys());
