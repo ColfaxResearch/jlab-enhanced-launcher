@@ -80,7 +80,7 @@
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Tiny YOLO* V4",
             "tag": "Object Detection",
-            "description": "Perform object detection using a pre-trained deep learning model (Tiny Yolo V4) which inputs a video file and generates an output video predicting the objects and drawing a bounding box around them."
+            "description": "Perform object detection using a pre-trained deep learning model which inputs a video file and generates an output video predicting the objects and drawing a bounding box around them."
           },
           "rank": 1,
           "category": "Featured AI Developer Tools"
@@ -92,7 +92,7 @@
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
             "title": "Tiny Yolo V3 Object Detection",
-            "tag": "Foundational",
+            "tag": "Object Detection",
             "description": "Convert a pretrained Tiny YOLO* V3 model on Darknet to TensorFlow*. Then run accelerated inference for object detection."
           },
           "rank": 2,
