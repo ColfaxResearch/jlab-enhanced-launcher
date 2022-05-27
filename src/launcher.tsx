@@ -162,6 +162,20 @@ export class LauncherModel extends VDomModel implements ILauncher {
   }
 
   /**
+   * Get the redirect link defined for documentation
+   */
+  get documentationRedirectLink(): string {
+    if (
+      this._settings &&
+      this._settings.composite['documentationRedirectLink']
+    ) {
+      return this._settings.composite['documentationRedirectLink'] as string;
+    } else {
+      return '#';
+    }
+  }
+
+  /**
    * Time (in milliseconds) after which the usage is considered to old
    */
   get maxUsageAge(): number {
@@ -671,8 +685,15 @@ export class Launcher extends VDomRenderer<LauncherModel> {
                   }
                 } else {
                   if (customItemTitle) {
+                    const customItemTag = customItemargs['tag'] as string;
+                    const customItemDescription = customItemargs[
+                      'description'
+                    ] as string;
+                    const customItemSearchFromStr = customItemTitle
+                      .concat(customItemTag)
+                      .concat(customItemDescription);
                     if (
-                      customItemTitle
+                      customItemSearchFromStr
                         .toLocaleLowerCase()
                         .indexOf(this._searchInput.toLocaleLowerCase()) === -1
                     ) {
@@ -758,6 +779,18 @@ export class Launcher extends VDomRenderer<LauncherModel> {
               >
                 <terminalIcon.react />
               </button>
+            </div>
+            <div>
+              <p className="jp-topHeaderTerminalText">Terminal</p>
+            </div>
+            <div>
+              <a
+                href={this.model.documentationRedirectLink}
+                className="jp-topHeaderTextDoc"
+                target="_blank"
+              >
+                Documentation
+              </a>
             </div>
             <div className="jp-NewLauncher-view">
               <button
