@@ -13,7 +13,7 @@
       "title": "Launcher categories in displayed order",
       "description": "Absent categories will be appended.",
       "default": [
-        "Featured AI Developer Tools",
+        "Featured AI Developer Tool",
         "Featured Tutorials",
         "Featured Sample Applications",
         "Kernels"
@@ -51,9 +51,9 @@
       "default": "https://www.intel.com/content/www/us/en/developer/tools/devcloud/edge/overview.html",
       "type": "string"
     },
-    "Featured AI Developer Tools": {
-      "title": "Featured AI Developer Tools Section",
-      "description": "Items for Featured AI Developer Tools Section",
+    "Featured AI Developer Tool": {
+      "title": "Featured AI Developer Tool Section",
+      "description": "Items for Featured AI Developer Tool Section",
       "type": "array",
       "items": {
         "type": "object"
@@ -62,184 +62,15 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/nncf/nncf_tensorflow_quantization.ipynb",
+            "path": "/Reference-samples/iot-devcloud/dl-workbench/DLWorkbenchLauncher.ipynb",
             "dontShowBrowser": true,
             "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "Neural Network Compression Framework",
-            "tag": "Foundational",
-            "description": "Apply advanced algorithms for neural networks inference optimization with minimal accuracy drop using this framework."
+            "title": "DL Workbench",
+            "tag": "",
+            "description": "Featured AI Developer Tool"
           },
           "rank": 0,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/tiny-yolo-v4-python/tiny_yolo_v4.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "Tiny YOLO* V4",
-            "tag": "Object Detection",
-            "description": "Perform object detection using a pre-trained deep learning model which inputs a video file and generates an output video predicting the objects and drawing a bounding box around them."
-          },
-          "rank": 1,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/tiny-yolo-v3-python/tiny_yolo_v3.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "Tiny Yolo V3 Object Detection",
-            "tag": "Object Detection",
-            "description": "Convert a pretrained Tiny YOLO* V3 model on Darknet to TensorFlow*. Then run accelerated inference for object detection."
-          },
-          "rank": 2,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/mask-rcnn/maskrcnn.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "Mask R-CNN Instance Segmentation",
-            "tag": "Object Detection",
-            "description": "This sample detects certain objects in an image, draws a bounding box around them, and masks them at the pixel level."
-          },
-          "rank": 3,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Openvino_Tensorflow/classification-python/classification.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "OpenVINO™ TensorFlow* Classification",
-            "tag": "Object Detection",
-            "description": "Learn how to use the native TensorFlow* models with the OpenVINO™ toolkit using a classification sample application."
-          },
-          "rank": 4,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Openvino_Tensorflow/object-detection-python/object_detection.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "OpenVINO™ TensorFlow* Object Detection",
-            "tag": "Object Detection",
-            "description": "Find out how to use the native TensorFlow* models with the OpenVINO™ toolkit using an object detection sample application."
-          },
-          "rank": 5,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/performance-comparison-python/performance_comparison_sample.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-performance-comparison.png",
-            "title": "Performance Comparison",
-            "tag": "Benchmarking",
-            "description": "Create a smart-video IoT solution for object detection using Intel® hardware and software. Explore the impact of data type on model performance."
-          },
-          "rank": 6,
-          "category": "Featured Sample Applications"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/people-counter-python/people_counter.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-people-counter-system.png",
-            "title": "People Counter System",
-            "tag": "Object Detection",
-            "description": "Deploy an IoT solution using a model from the Intel® Distribution of OpenVINO™ toolkit to detect and count people in each frame of a video feed."
-          },
-          "rank": 7,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/restricted-zone-notifier-python/restricted_zone_notifier.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-restricted-zone-notifier.png",
-            "title": "Restricted Zone Notifier",
-            "tag": "Object Detection",
-            "description": "Create a smart video solution to detect people within a video frame and determine whether they have entered a restricted zone."
-          },
-          "rank": 8,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/safety-gear-detection-python/safety_gear_detection.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-safety-gear-detection.png",
-            "title": "Safety Gear Detection",
-            "tag": "Object Detection",
-            "description": "Detect people and their safety gear from video input that uses an optimized, pretrained MobileNet* single-shot detector (SSD) neural network."
-          },
-          "rank": 9,
-          "category": "Featured Sample Applications"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/shopper-gaze-monitor-python/shopper_gaze_monitor.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-shopper-gaze-monitor.png",
-            "title": "Shopper Gaze Monitor",
-            "tag": "Classification",
-            "description": "Build a solution to analyze customer expressions and reactions to product advertising positioned on retail shelves."
-          },
-          "rank": 10,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/store-aisle-monitor-python/store_aisle_monitor.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-store-aisle-monitor.png",
-            "title": "Store Aisle Monitor",
-            "tag": "Object Detection",
-            "description": "To detect people in a retail setting, run inference on a pretrained model from the Intel® Distribution of OpenVINO™ toolkit."
-          },
-          "rank": 11,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Healthcare/brain_tumor_segmentation.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-brain-tumor-segmentation.png",
-            "title": "Brain Tumor Segmentation",
-            "tag": "Object Detection",
-            "description": "Convert and optimize a model based on U-Net for brain tumor segmentation to maximize inference performance on Intel® architecture."
-          },
-          "rank": 12,
-          "category": "Featured AI Developer Tools"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-lts/developer-samples/python/biobert-python/BioBERT.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-biomedical-text-mining.png",
-            "title": "Biomedical Text Mining",
-            "tag": "Foundational",
-            "description": "Perform biomedical question answering using a pretrained BioBERT model and the BioASQ dataset for high-performance inferencing on Intel® hardware."
-          },
-          "rank": 13,
-          "category": "Featured AI Developer Tools"
+          "category": "Featured Tutorials"
         }
       ]
     },
@@ -254,19 +85,6 @@
         {
           "command": "filebrowser:open-path",
           "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/classification/tutorial_classification_sample.ipynb",
-            "dontShowBrowser": true,
-            "icon": "tutorial-classification.png",
-            "title": "Classification",
-            "tag": "Tutorial",
-            "description": "Classify and report the probability of objects from image and video input with a SqueezeNet 1.1 model and the Intel® Distribution of OpenVINO™ toolkit."
-          },
-          "rank": 0,
-          "category": "Featured Tutorials"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
             "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/benchmarkApp_python/BenchmarkApp_python.ipynb",
             "dontShowBrowser": true,
             "icon": "tutorial-adv-benchmark-app.png",
@@ -274,7 +92,72 @@
             "tag": "Tutorial",
             "description": "Learn how to use the Intel® DevCloud benchmarking tool to evaluate the performance of your model's synchronous and asynchronous inference."
           },
+          "rank": 0,
+          "category": "Featured Tutorials"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/devcloud-to-local-migration/DevCloud_to_Local_Migration.ipynb",
+            "dontShowBrowser": true,
+            "icon": "tutorial-adv-migrate-to-local-edge.png",
+            "title": "Devcloud to Edge Migration",
+            "tag": "Tutorial",
+            "description": "Migrate your IoT application from your local edge device to run on a bare metal node."
+          },
           "rank": 1,
+          "category": "Featured Tutorials"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/classification/tutorial_classification_sample.ipynb",
+            "dontShowBrowser": true,
+            "icon": "tutorial-classification.png",
+            "title": "Classification",
+            "tag": "Tutorial",
+            "description": "Classify and report the probability of objects from image and video input with a SqueezeNet 1.1 model and the Intel® Distribution of OpenVINO™ toolkit."
+          },
+          "rank": 2,
+          "category": "Featured Tutorials"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/devcloud-to-local-migration/DevCloud_to_Local_Migration.ipynb",
+            "dontShowBrowser": true,
+            "icon": "tutorial-adv-migrate-to-devcloud.png",
+            "title": "Edge to DevCloud Migration",
+            "tag": "Tutorial",
+            "description": "Migrate your IoT application from Intel® DevCloud to your local edge device."
+          },
+          "rank": 3,
+          "category": "Featured Tutorials"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/opencv/OpenCV_Primer_Tutorial.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-tiny-yolo-object-detection.png",
+            "title": "OpenCV",
+            "tag": "Tutorial",
+            "description": "Learn about the most common use cases of OpenCV for general image manipulation and the Intel® Distribution of OpenVINO™ toolkit."
+          },
+          "rank": 4,
+          "category": "Featured Tutorials"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/pot/POT_tutorial.ipynb",
+            "dontShowBrowser": true,
+            "icon": "tutorial-adv-post-training-optimization.png",
+            "title": "Post Optimization Tool",
+            "tag": "Tutorial",
+            "description": "Automate the model transformation process without changing model structure using the Post-Training Optimization Tool."
+          },
+          "rank": 5,
           "category": "Featured Tutorials"
         },
         {
@@ -287,72 +170,7 @@
             "tag": "Tutorial",
             "description": "Restyle images and video frames using a pretrained network and the Intel® Distribution of OpenVINO™ toolkit."
           },
-          "rank": 2,
-          "category": "Featured Tutorials"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/pot/POT_tutorial.ipynb",
-            "dontShowBrowser": true,
-            "icon": "tutorial-adv-post-training-optimization.png",
-            "title": "Post-Training Optimization Tool",
-            "tag": "Tutorial",
-            "description": "Automate the model transformation process without changing model structure using the Post-Training Optimization Tool."
-          },
-          "rank": 3,
-          "category": "Featured Tutorials"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/opencv/OpenCV_Primer_Tutorial.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "OpenCV Tutorial",
-            "tag": "Tutorial",
-            "description": "Learn about the most common use cases of OpenCV for general image manipulation and the Intel® Distribution of OpenVINO™ toolkit."
-          },
-          "rank": 4,
-          "category": "Featured Tutorials"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/devcloud-to-local-migration/DevCloud_to_Local_Migration.ipynb",
-            "dontShowBrowser": true,
-            "icon": "tutorial-adv-migrate-to-devcloud.png",
-            "title": "Migrate to DevCloud",
-            "tag": "Tutorial",
-            "description": "Migrate your IoT application from Intel® DevCloud to your local edge device."
-          },
-          "rank": 5,
-          "category": "Featured Tutorials"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/devcloud-to-local-migration/DevCloud_to_Local_Migration.ipynb",
-            "dontShowBrowser": true,
-            "icon": "tutorial-adv-migrate-to-local-edge.png",
-            "title": "Migrate to Edge",
-            "tag": "Tutorial",
-            "description": "Migrate your IoT application from your local edge device to run on a bare metal node."
-          },
           "rank": 6,
-          "category": "Featured Tutorials"
-        },
-        {
-          "command": "filebrowser:open-path",
-          "args": {
-            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/Openvino_Tensorflow/tfhub_classification/image_classification_tfhub.ipynb",
-            "dontShowBrowser": true,
-            "icon": "sample-tiny-yolo-object-detection.png",
-            "title": "OpenVINO™ Integration with TensorFlow*",
-            "tag": "Tutorial",
-            "description": "Use just two lines of code to rapidly integrate a TensorFlow* model with an image classification application using the Intel® Distribution of OpenVINO™ toolkit."
-          },
-          "rank": 7,
           "category": "Featured Tutorials"
         }
       ]
@@ -415,6 +233,201 @@
             "description": "Detect and infer objects with input feeds. Monitor customers and track inventory with a pretrained neural network."
           },
           "rank": 3,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/tutorials/nncf/nncf_tensorflow_quantization.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-tiny-yolo-object-detection.png",
+            "title": "Neural Network Compression Framework",
+            "tag": "Foundational",
+            "description": "Apply advanced algorithms for neural networks inference optimization with minimal accuracy drop using this framework."
+          },
+          "rank": 4,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/tiny-yolo-v4-python/tiny_yolo_v4.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-tiny-yolo-object-detection.png",
+            "title": "Tiny YOLO* V4",
+            "tag": "Object Detection",
+            "description": "Perform object detection using a pre-trained deep learning model which inputs a video file and generates an output video predicting the objects and drawing a bounding box around them."
+          },
+          "rank": 5,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/tiny-yolo-v3-python/tiny_yolo_v3.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-tiny-yolo-object-detection.png",
+            "title": "Tiny YOLO* V3",
+            "tag": "Object Detection",
+            "description": "Convert a pretrained Tiny YOLO* V3 model on Darknet to TensorFlow*. Then run accelerated inference for object detection."
+          },
+          "rank": 6,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/machine_translation-python/machine_translation.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-machine-translation.png",
+            "title": "Machine Translation",
+            "tag": "Text Mining",
+            "description": "Translate text from English to German and Russian using nonautoregressive transformer models."
+          },
+          "rank": 7,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/mask-rcnn/maskrcnn.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-tiny-yolo-object-detection.png",
+            "title": "Mask R-CNN Instance Segmentation",
+            "tag": "Object Detection",
+            "description": "This sample detects certain objects in an image, draws a bounding box around them, and masks them at the pixel level."
+          },
+          "rank": 8,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Openvino_Tensorflow/classification-python/classification.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-tiny-yolo-object-detection.png",
+            "title": "OpenVINO™ TensorFlow*",
+            "tag": "Classification",
+            "description": "Learn how to use the native TensorFlow* models with the OpenVINO™ toolkit using a classification sample application."
+          },
+          "rank": 9,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Openvino_Tensorflow/object-detection-python/object_detection.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-tiny-yolo-object-detection.png",
+            "title": "OpenVINO™ TensorFlow*",
+            "tag": "Object Detection",
+            "description": "Find out how to use the native TensorFlow* models with the OpenVINO™ toolkit using an object detection sample application."
+          },
+          "rank": 10,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/performance-comparison-python/performance_comparison_sample.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-performance-comparison.png",
+            "title": "Performance Comparison",
+            "tag": "Foundational",
+            "description": "Create a smart-video IoT solution for object detection using Intel® hardware and software. Explore the impact of data type on model performance."
+          },
+          "rank": 11,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/people-counter-python/people_counter.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-people-counter-system.png",
+            "title": "People Counter System",
+            "tag": "Object Detection",
+            "description": "Deploy an IoT solution using a model from the Intel® Distribution of OpenVINO™ toolkit to detect and count people in each frame of a video feed."
+          },
+          "rank": 12,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/restricted-zone-notifier-python/restricted_zone_notifier.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-restricted-zone-notifier.png",
+            "title": "Restricted Zone Notifier",
+            "tag": "Object Detection",
+            "description": "Create a smart video solution to detect people within a video frame and determine whether they have entered a restricted zone."
+          },
+          "rank": 13,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/safety-gear-detection-python/safety_gear_detection.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-safety-gear-detection.png",
+            "title": "Safety Gear Detection",
+            "tag": "Object Detection",
+            "description": "Detect people and their safety gear from video input that uses an optimized, pretrained MobileNet* single-shot detector (SSD) neural network."
+          },
+          "rank": 14,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/shopper-gaze-monitor-python/shopper_gaze_monitor.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-shopper-gaze-monitor.png",
+            "title": "Shopper Gaze Monitor",
+            "tag": "Classification",
+            "description": "Build a solution to analyze customer expressions and reactions to product advertising positioned on retail shelves."
+          },
+          "rank": 15,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/store-aisle-monitor-python/store_aisle_monitor.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-store-aisle-monitor.png",
+            "title": "Store Aisle Monitor",
+            "tag": "Object Detection",
+            "description": "To detect people in a retail setting, run inference on a pretrained model from the Intel® Distribution of OpenVINO™ toolkit."
+          },
+          "rank": 16,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-dev-latest/developer-samples/python/Healthcare/brain_tumor_segmentation.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-brain-tumor-segmentation.png",
+            "title": "Brain Tumor Segmentation",
+            "tag": "Object Detection",
+            "description": "Convert and optimize a model based on U-Net for brain tumor segmentation to maximize inference performance on Intel® architecture."
+          },
+          "rank": 17,
+          "category": "Featured Sample Applications"
+        },
+        {
+          "command": "filebrowser:open-path",
+          "args": {
+            "path": "/Reference-samples/iot-devcloud/openvino-lts/developer-samples/python/biobert-python/BioBERT.ipynb",
+            "dontShowBrowser": true,
+            "icon": "sample-biomedical-text-mining.png",
+            "title": "BioBERT",
+            "tag": "Text Mining",
+            "description": "Perform biomedical question answering using a pretrained BioBERT model and the BioASQ dataset for high-performance inferencing on Intel® hardware."
+          },
+          "rank": 18,
           "category": "Featured Sample Applications"
         }
       ]
